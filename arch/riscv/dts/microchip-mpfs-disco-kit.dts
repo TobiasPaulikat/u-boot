@@ -156,6 +156,37 @@
 	sd-uhs-sdr104;
 };
 
+&i2c1 {
+	status = "okay";
+	clock-frequency = <100000>;
+
+	pac193x: pac193x@10 {
+		compatible = "microchip,pac1934";
+		reg = <0x10>;
+		samp-rate = <64>;
+		status = "okay";
+		ch1: channel0 {
+			uohms-shunt-res = <10000>;
+			rail-name = "VDDREG";
+			channel_enabled;
+		};
+		ch2: channel1 {
+			uohms-shunt-res = <10000>;
+			rail-name = "VDDA25";
+			channel_enabled;
+		};
+		ch3: channel2 {
+			uohms-shunt-res = <10000>;
+			rail-name = "VDD25";
+			channel_enabled;
+		};
+		ch4: channel3 {
+			uohms-shunt-res = <10000>;
+			rail-name = "VDDA_REG";
+			channel_enabled;
+		};
+	};
+};
 &mac0 {
 	status = "okay";
 	phy-mode = "sgmii";
